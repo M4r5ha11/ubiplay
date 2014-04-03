@@ -4,6 +4,7 @@ from __future__ import division, absolute_import, print_function, unicode_litera
 from flask import Flask, abort, render_template, url_for, Response
 
 import core
+import settings
 
 app = Flask(__name__)
 
@@ -42,4 +43,4 @@ def raw(filepath):
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host=settings.HOST, port=settings.PORT, debug=settings.DEBUG)
