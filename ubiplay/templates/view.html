@@ -1,10 +1,7 @@
-<!doctype html>
-<html>
-<head>
-<title>{{ content.entry.name }} - Ubiplay</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %}{{ content.entry.name }}{% endblock %}
 
+{% block content %}
 <h1>{{ content.entry.name }}</h1>
 
 <div>
@@ -16,8 +13,7 @@
 </div>
 
 <div>
-<audio controls="controls" src="{{ raw_url }}"/>
+<audio controls="controls" autoplay="autoplay" src="{{ raw_url }}"/>
 </div>
 
-</body>
-</html>
+{% endblock %}

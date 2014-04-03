@@ -1,19 +1,46 @@
-<!doctype html>
-<html>
-<head>
-<title>{{ content.path }} - Ubiplay</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %}{{ content.path }}{% endblock %}
 
+{% block js %}
+<script src="/static/index.js"></script>
+<script>
+$(document).ready(main);
+</script>
+{% endblock %}
+
+{% block content %}
 {% if up_url %}
 <a href="{{ up_url }}">Up</a>
 {% endif %}
 
+<div>
+    <div id="song-name">&nbsp;</div>
+    <audio id="player" controls="controls"/>
+</div>
+
+{% if content.dirs %}
+<h1>Folders</h1>
+{% endif %}
 <ul>
-{% for entry in content %}
-    <li><a href="{{ url_for_entry(entry) }}">{{ entry.name }}</a></li>
+{% for entry in content.dirs %}
+    <li>
+        <a href="{{ url_for_entry(entry) }}">{{ entry.name }}</a>
+    </li>
 {% endfor %}
 </ul>
 
-</body>
-</html>
+{% if content.files %}
+<h1>Files</h1>
+{% endif %}
+<ul>
+{% for entry in content.files %}
+    {% if entry.mimetype.startswith("audio") %}
+    <li class="playlist-entry" data-mimetype="{{ entry.mimetype }}" data-raw-url="{{ raw_url_for_entry(entry) }}" data-name="{{ entry.name }}">
+        <span class="play-indicator">▶</span>
+        <a class="entry-link" href="#">{{ entry.name }}</a>
+    </li>
+    {% endif %}
+{% endfor %}
+</ul>
+
+{% endblock %}

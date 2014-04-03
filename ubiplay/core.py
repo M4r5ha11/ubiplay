@@ -11,6 +11,12 @@ import settings
 ROOT_DIR = os.path.abspath(settings.ROOT_DIR)
 
 
+MIMETYPE_DIR = "inode/directory"
+MIMETYPE_DEFAULT = "application/octet-stream"
+
+
+Entry = namedtuple("Entry", ["mimetype", "name", "path"])
+
 def create_entry(filepath):
     name = os.path.basename(filepath)
     full = os.path.join(ROOT_DIR, filepath)
@@ -18,26 +24,36 @@ def create_entry(filepath):
         mimetype = MIMETYPE_DIR
     else:
         mimetype = mimetypes.guess_type(full)[0]
+        if mimetype is None:
+            mimetype = MIMETYPE_DEFAULT
     return Entry(mimetype=mimetype, name=name, path=filepath)
-
-
-MIMETYPE_DIR = "inode/directory"
-
-
-Entry = namedtuple("Entry", ["mimetype", "name", "path"])
 
 
 class DirContent(object):
     def __init__(self, dirpath, fulldirpath):
         self._path = dirpath
-        self._lst = [create_entry(os.path.join(dirpath, x)) for x in sorted(os.listdir(fulldirpath)) if x[0] != "."]
-
-    def __getitem__(self, x):
-        return self._lst[x]
+        self._dirs = []
+        self._files = []
+        for name in sorted(os.listdir(fulldirpath)):
+            if name[0] == ".":
+                continue
+            entry = create_entry(os.path.join(dirpath, name))
+            if entry.mimetype == MIMETYPE_DIR:
+                self._dirs.append(entry)
+            else:
+                self._files.append(entry)
 
     @property
     def path(self):
         return self._path
+
+    @property
+    def dirs(self):
+        return self._dirs
+
+    @property
+    def files(self):
+        return self._files
 
 class FileContent(object):
     def __init__(self, path):
