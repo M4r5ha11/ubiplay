@@ -2,13 +2,12 @@ var sPlayer;
 var sCurrentEntry;
 
 function main() {
+    initPlaylistEntries();
     initPlayer();
-    initPlayLinks();
 }
 
 function initPlayer() {
     sPlayer = $("#player")[0];
-    $(".play-indicator").hide();
 
     var firstEntry = $(".playlist-entry")[0];
     if (!firstEntry) {
@@ -18,7 +17,8 @@ function initPlayer() {
     setCurrentEntry(firstEntry);
 }
 
-function initPlayLinks() {
+function initPlaylistEntries() {
+    $(".play-indicator").hide();
     $(".entry-link").click(function() {
         setCurrentEntry(this.parentElement);
         sPlayer.play();
