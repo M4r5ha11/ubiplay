@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+<title></title>
+</head>
+<body>
+
+<h1>{{ content.entry.name }}</h1>
+
+<div>
+<a href="{{ up_url }}">Up</a>
+</div>
+
+<div>
+<a href="{{raw_url}}">Download</a> {{ content.entry.mimetype }}
+</div>
+
+<div>
+<audio controls="controls" src="{{ raw_url }}"/>
+</div>
+
+</body>
+</html>

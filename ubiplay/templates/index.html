@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+<head>
+<title></title>
+</head>
+<body>
+
+{% if up_url %}
+<a href="{{ up_url }}">Up</a>
+{% endif %}
+
+<ul>
+{% for entry in content %}
+    <li><a href="{{ url_for_entry(entry) }}">{{ entry.name }}</a></li>
+{% endfor %}
+</ul>
+
+</body>
+</html>
