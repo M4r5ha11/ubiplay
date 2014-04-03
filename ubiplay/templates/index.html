@@ -13,7 +13,7 @@ $(document).ready(main);
 <h1 class="up"><a href="{{ up_url }}">Up</a></h1>
 {% endif %}
 
-<div class="player">
+<div id="player">
     <div id="song-name">&nbsp;</div>
     <audio id="audio" controls="controls"/>
 </div>
@@ -36,8 +36,7 @@ $(document).ready(main);
 {% for entry in content.files %}
     {% if entry.mimetype.startswith("audio") %}
     <li class="playlist-entry" data-mimetype="{{ entry.mimetype }}" data-raw-url="{{ raw_url_for_entry(entry) }}" data-name="{{ entry.name }}">
-        <span class="play-indicator">▶</span>
-        <a class="entry-link" href="#">{{ entry.name }}</a>
+        <a class="entry-link" href="#"><span class="play-indicator">▶</span> {{ entry.name }}</a>
     </li>
     {% endif %}
 {% endfor %}

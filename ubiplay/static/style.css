@@ -1,9 +1,10 @@
 /* Player */
 #song-name {
-    background-color: #eef;
-    padding: 6px;
-    padding-bottom: 16px;
+    background-color: #ddf;
+    color: #333;
+    padding: 16px 12px;
     font-size: 120%;
+    text-align: center;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
 }
@@ -21,13 +22,14 @@ ul {
 }
 
 ul li {
-    padding: 6px 0;
     border-bottom: 1px solid #eef;
 }
 
 ul li a {
     text-decoration: none;
     color: black;
+    display: block;
+    padding: 12px 0;
 }
 
 ul li a:visited {
@@ -35,5 +37,4 @@ ul li a:visited {
 }
 
 .play-indicator {
-    padding-left: 6px;
 }

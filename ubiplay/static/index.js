@@ -12,7 +12,7 @@ function initPlayer() {
 
     var firstEntry = $(".playlist-entry")[0];
     if (!firstEntry) {
-        $(sPlayer).hide();
+        $("#player").hide();
         return;
     }
     setCurrentEntry(firstEntry);
