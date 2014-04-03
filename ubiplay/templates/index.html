@@ -10,18 +10,18 @@ $(document).ready(main);
 
 {% block content %}
 {% if up_url %}
-<a href="{{ up_url }}">Up</a>
+<h1 class="up"><a href="{{ up_url }}">Up</a></h1>
 {% endif %}
 
-<div>
+<div class="player">
     <div id="song-name">&nbsp;</div>
-    <audio id="player" controls="controls"/>
+    <audio id="audio" controls="controls"/>
 </div>
 
 {% if content.dirs %}
 <h1>Folders</h1>
 {% endif %}
-<ul>
+<ul class="dirlist">
 {% for entry in content.dirs %}
     <li>
         <a href="{{ url_for_entry(entry) }}">{{ entry.name }}</a>
@@ -32,7 +32,7 @@ $(document).ready(main);
 {% if content.files %}
 <h1>Files</h1>
 {% endif %}
-<ul>
+<ul class="playlist">
 {% for entry in content.files %}
     {% if entry.mimetype.startswith("audio") %}
     <li class="playlist-entry" data-mimetype="{{ entry.mimetype }}" data-raw-url="{{ raw_url_for_entry(entry) }}" data-name="{{ entry.name }}">

@@ -7,7 +7,7 @@ function main() {
 }
 
 function initPlayer() {
-    sPlayer = $("#player")[0];
+    sPlayer = $("#audio")[0];
     sPlayer.addEventListener("ended", goToNext);
 
     var firstEntry = $(".playlist-entry")[0];

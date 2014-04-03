@@ -1,0 +1,39 @@
+/* Player */
+#song-name {
+    background-color: #eef;
+    padding: 6px;
+    padding-bottom: 16px;
+    font-size: 120%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+#audio {
+    width: 100%;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+/* lists */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    padding: 6px 0;
+    border-bottom: 1px solid #eef;
+}
+
+ul li a {
+    text-decoration: none;
+    color: black;
+}
+
+ul li a:visited {
+    color: black;
+}
+
+.play-indicator {
+    padding-left: 6px;
+}
