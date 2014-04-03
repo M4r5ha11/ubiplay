@@ -1,6 +1,14 @@
+/* Misc */
+.clear {
+    clear: both;
+}
+
 /* Player */
+#player {
+}
+
 #song-name {
-    background-color: #ddf;
+    background-color: #eef;
     color: #333;
     padding: 16px 12px;
     font-size: 120%;
@@ -15,24 +23,73 @@
     border-bottom-right-radius: 5px;
 }
 
-/* lists */
-ul {
+/* breadcrumbs */
+ul.breadcrumbs {
+    list-style: none;
+    padding: 0;
+    height: 2em;
+    margin-bottom: 2em;
+}
+
+ul.breadcrumbs li {
+    display: inline;
+    float: left;
+    margin: 0;
+    padding: 0;
+    border: 1px solid #88a;
+    border-right: none;
+    background-color: #eef;
+    min-width: 4em;
+}
+
+ul.breadcrumbs li:first-child {
+    border-top-left-radius: 1em;
+    border-bottom-left-radius: 1em;
+}
+
+ul.breadcrumbs li:last-child {
+    border-top-right-radius: 1em;
+    border-bottom-right-radius: 1em;
+    border-right: 1px solid #88a;
+    background-color: #ddd;
+    color: #444;
+}
+
+ul.breadcrumbs li .breadcrumb {
+    display: block;
+    padding: 0 1em;
+    height: 2em;
+    line-height: 2em;
+    text-align: center;
+}
+
+a.breadcrumb {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a.breadcrumb, a:visited.breadcrumb {
+    color: #333;
+}
+
+/* fslist */
+ul.fslist {
     list-style: none;
     padding: 0;
 }
 
-ul li {
+ul.fslist li {
     border-bottom: 1px solid #eef;
 }
 
-ul li a {
+ul.fslist li a {
     text-decoration: none;
     color: black;
     display: block;
     padding: 12px 0;
 }
 
-ul li a:visited {
+ul.fslist li a:visited {
     color: black;
 }
 

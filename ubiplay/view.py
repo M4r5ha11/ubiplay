@@ -26,12 +26,8 @@ def index(filepath=""):
     if content is None:
         abort(404)
     if isinstance(content, core.DirContent):
-        parent_filepath = core.get_parent_filepath(filepath)
-        if parent_filepath is not None:
-            up_url = url_for("index", filepath=parent_filepath)
-        else:
-            up_url = None
-        return render_template("index.html", up_url=up_url, content=content, url_for_entry=url_for_entry, raw_url_for_entry=raw_url_for_entry)
+        breadcrumbs = core.get_breadcrumbs(filepath)
+        return render_template("index.html", breadcrumbs=breadcrumbs, content=content, url_for_entry=url_for_entry, raw_url_for_entry=raw_url_for_entry)
     else:
         parent_filepath = core.get_parent_filepath(filepath)
         up_url = url_for("index", filepath=parent_filepath)

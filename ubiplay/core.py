@@ -17,6 +17,7 @@ MIMETYPE_DEFAULT = "application/octet-stream"
 
 Entry = namedtuple("Entry", ["mimetype", "name", "path"])
 
+
 def create_entry(filepath):
     name = os.path.basename(filepath)
     full = os.path.join(ROOT_DIR, filepath)
@@ -27,6 +28,10 @@ def create_entry(filepath):
         if mimetype is None:
             mimetype = MIMETYPE_DEFAULT
     return Entry(mimetype=mimetype, name=name, path=filepath)
+
+
+def create_root_entry():
+    return Entry(mimetype=MIMETYPE_DIR, name="/", path="")
 
 
 class DirContent(object):
@@ -85,3 +90,16 @@ def get_raw(filepath):
     fullpath = os.path.join(ROOT_DIR, filepath)
     mimetype = mimetypes.guess_type(fullpath)[0]
     return open(fullpath).read(), mimetype
+
+
+def get_breadcrumbs(filepath):
+    lst = []
+
+    lst.append(create_root_entry())
+    if filepath != "":
+        parts = filepath.split("/")
+        for pos in range(len(parts)):
+            path = os.path.join(*parts[:pos + 1])
+            entry = create_entry(path)
+            lst.append(entry)
+    return lst

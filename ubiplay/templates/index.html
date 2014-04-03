@@ -9,9 +9,25 @@ $(document).ready(main);
 {% endblock %}
 
 {% block content %}
-{% if up_url %}
-<h1 class="up"><a href="{{ up_url }}">Up</a></h1>
-{% endif %}
+<ul class="breadcrumbs">
+{% for entry in breadcrumbs %}
+    <li>
+    {% if loop.last %}
+        <span class="breadcrumb breadcrumb-last"/>
+    {% else %}
+        <a class="breadcrumb" href="{{ url_for_entry(entry) }}">
+    {% endif %}
+        {{ entry.name }}
+    {% if loop.last %}
+        </span>
+    {% else %}
+        </a>
+    {% endif %}
+    </li>
+{% endfor %}
+</ul>
+
+<div class="clear"></div>
 
 <div id="player">
     <div id="song-name">&nbsp;</div>
@@ -21,7 +37,7 @@ $(document).ready(main);
 {% if content.dirs %}
 <h1>Folders</h1>
 {% endif %}
-<ul class="dirlist">
+<ul class="fslist dirlist">
 {% for entry in content.dirs %}
     <li>
         <a href="{{ url_for_entry(entry) }}">{{ entry.name }}</a>
@@ -32,7 +48,7 @@ $(document).ready(main);
 {% if content.files %}
 <h1>Files</h1>
 {% endif %}
-<ul class="playlist">
+<ul class="fslist playlist">
 {% for entry in content.files %}
     {% if entry.mimetype.startswith("audio") %}
     <li class="playlist-entry" data-mimetype="{{ entry.mimetype }}" data-raw-url="{{ raw_url_for_entry(entry) }}" data-name="{{ entry.name }}">
