@@ -82,6 +82,10 @@ ul.fslist li {
     border-bottom: 1px solid #eef;
 }
 
+ul.fslist li:last-child {
+    border-bottom: none;
+}
+
 ul.fslist li a {
     text-decoration: none;
     color: black;
