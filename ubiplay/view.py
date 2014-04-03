@@ -13,6 +13,7 @@ def url_for_entry(entry):
     return url_for("index", filepath=entry.path)
 
 
+@app.route("/")
 @app.route("/view")
 @app.route("/view/")
 @app.route("/view/<path:filepath>")
