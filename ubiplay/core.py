@@ -59,7 +59,6 @@ def get_content(filepath):
 def get_parent_filepath(filepath):
     if filepath == "":
         return None
-    print("filepath={}, parent={}".format(filepath, os.path.dirname(filepath)))
     return os.path.dirname(filepath)
 
 
