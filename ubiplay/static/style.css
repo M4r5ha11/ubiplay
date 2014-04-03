@@ -1,6 +1,7 @@
 /* Misc */
-.clear {
+.vspace {
     clear: both;
+    height: 1em;
 }
 
 /* Player */
@@ -8,19 +9,22 @@
 }
 
 #song-name {
-    background-color: #eef;
+    background-color: #ecf0f1;
+    padding: 2px;
+    border: 2px solid #3498db;
+    border-radius: 5px;
     color: #333;
     padding: 16px 12px;
     font-size: 120%;
     text-align: center;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+    margin-bottom: 6px;
 }
 
 #audio {
     width: 100%;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
+    /*border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;*/
+    background-color: #3498db;
 }
 
 /* breadcrumbs */
@@ -36,23 +40,22 @@ ul.breadcrumbs li {
     float: left;
     margin: 0;
     padding: 0;
-    border: 1px solid #88a;
-    border-right: none;
-    background-color: #eef;
+    background-color: #3498db;
+    color: white;
     min-width: 4em;
+    border-right: 1px dotted #1a5f81;
 }
 
 ul.breadcrumbs li:first-child {
-    border-top-left-radius: 1em;
-    border-bottom-left-radius: 1em;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
 }
 
 ul.breadcrumbs li:last-child {
-    border-top-right-radius: 1em;
-    border-bottom-right-radius: 1em;
-    border-right: 1px solid #88a;
-    background-color: #ddd;
-    color: #444;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: #2980b9;
+    border-right: none;
 }
 
 ul.breadcrumbs li .breadcrumb {
@@ -69,7 +72,7 @@ a.breadcrumb {
 }
 
 a.breadcrumb, a:visited.breadcrumb {
-    color: #333;
+    color: white;
 }
 
 /* fslist */
@@ -79,7 +82,7 @@ ul.fslist {
 }
 
 ul.fslist li {
-    border-bottom: 1px solid #eef;
+    border-bottom: 1px dotted #3498db;
 }
 
 ul.fslist li:last-child {
@@ -98,4 +101,5 @@ ul.fslist li a:visited {
 }
 
 .play-indicator {
+    color: #3498db;
 }
