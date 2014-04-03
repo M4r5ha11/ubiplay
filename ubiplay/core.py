@@ -28,13 +28,16 @@ Entry = namedtuple("Entry", ["mimetype", "name", "path"])
 
 
 class DirContent(object):
-
     def __init__(self, dirpath, fulldirpath):
+        self._path = dirpath
         self._lst = [create_entry(os.path.join(dirpath, x)) for x in sorted(os.listdir(fulldirpath)) if x[0] != "."]
 
     def __getitem__(self, x):
         return self._lst[x]
 
+    @property
+    def path(self):
+        return self._path
 
 class FileContent(object):
     def __init__(self, path):
