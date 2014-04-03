@@ -64,15 +64,15 @@
     z-index: 2;
     background-color: #3498db;
     display: block;
-    width: 10px;
-    height: 10px;
-    border-radius: 5px;
-    top: -2px;
-    margin-left: -3px;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    top: -7px;
+    margin-left: -6px;
 }
 
 .player-slider-container {
-    padding: 4px;
+    padding: 8px;
 }
 
 /* breadcrumbs */
