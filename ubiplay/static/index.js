@@ -8,6 +8,7 @@ function main() {
 
 function initPlayer() {
     sPlayer = $("#player")[0];
+    sPlayer.addEventListener("ended", goToNext);
 
     var firstEntry = $(".playlist-entry")[0];
     if (!firstEntry) {
@@ -30,8 +31,19 @@ function setCurrentEntry(entry) {
         $(sCurrentEntry).find(".play-indicator").hide();
     }
     sCurrentEntry = entry;
+    if (!sCurrentEntry) {
+        return;
+    }
     var rawUrl = entry.getAttribute("data-raw-url");
     sPlayer.setAttribute("src", rawUrl);
     $("#song-name").html(sCurrentEntry.getAttribute("data-name"));
     $(entry).find(".play-indicator").show();
+}
+
+function goToNext() {
+    var entry = $(sCurrentEntry).next(".playlist-entry")[0];
+    if (entry) {
+        setCurrentEntry(entry);
+        sPlayer.play();
+    }
 }
