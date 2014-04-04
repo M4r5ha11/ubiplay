@@ -1,9 +1,13 @@
-URLS
+# What
 
-/view => list of files in /
+A file-system, web-based music player, using the `<audio>` tag.
 
-/view/foo/bar/ => list of files in /foo/bar/
+# Configuring it
 
-/view/foo/bar/baz.mp3 => player for baz.mp3
+Copy `ubiplay/settings-sample.py` to `ubiplay/settings.py`
 
-/raw/foo/bar/baz.mp3 => download baz.mp3
+Edit `ubiplay/settings.py`
+
+# Starting it
+
+    python ubiplay/view.py
