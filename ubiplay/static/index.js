@@ -8,7 +8,7 @@ function main() {
 }
 
 function initPlayer() {
-    sPlayer = $("#audio")[0];
+    sPlayer = document.createElement("audio");
     sPlayer.addEventListener("loadedmetadata", updateSongDuration);
     sPlayer.addEventListener("play", updatePlayButton);
     sPlayer.addEventListener("pause", updatePlayButton);
