@@ -4,7 +4,7 @@ from __future__ import division, absolute_import, print_function, unicode_litera
 from flask import Flask, abort, render_template, url_for, Response
 
 import core
-import settings
+
 
 app = Flask(__name__)
 
@@ -41,7 +41,3 @@ def raw(filepath):
         abort(404)
     data, mimetype = lst
     return Response(data, content_type=mimetype)
-
-
-if __name__ == "__main__":
-    app.run(host=settings.HOST, port=settings.PORT, debug=settings.DEBUG)

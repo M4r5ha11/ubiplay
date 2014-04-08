@@ -16,4 +16,8 @@ Edit `ubiplay/settings.py`.
 
 # Starting it
 
-    python ubiplay/view.py
+    python ubiplay/main.py
+
+Or to run it as a daemon:
+
+    python ubiplay/main.py --daemon ~/tmp/ubiplay.pid --log ~/tmp/ubiplay.log

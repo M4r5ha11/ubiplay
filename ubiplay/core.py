@@ -7,8 +7,7 @@ import os
 from collections import namedtuple
 
 
-import settings
-ROOT_DIR = os.path.abspath(settings.ROOT_DIR)
+ROOT_DIR = None
 
 
 MIMETYPE_DIR = "inode/directory"
@@ -16,6 +15,11 @@ MIMETYPE_DEFAULT = "application/octet-stream"
 
 
 Entry = namedtuple("Entry", ["mimetype", "name", "path"])
+
+
+def set_root_dir(root_dir):
+    global ROOT_DIR
+    ROOT_DIR = os.path.abspath(os.path.expanduser(root_dir))
 
 
 def create_entry(filepath):
