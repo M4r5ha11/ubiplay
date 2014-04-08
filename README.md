@@ -1,6 +1,6 @@
 # What
 
-A file-system, web-based music player, using the `<audio>` tag.
+A file-system based, web music player, using the `<audio>` tag.
 
 # Under the hood
 
