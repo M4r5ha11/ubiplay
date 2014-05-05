@@ -1,7 +1,7 @@
 # Python 2/3 compatibility
 from __future__ import division, absolute_import, print_function, unicode_literals
 
-from flask import Flask, abort, render_template, url_for, Response
+from flask import Flask, abort, render_template, url_for, Response, redirect
 
 import core
 
@@ -41,3 +41,7 @@ def raw(filepath):
         abort(404)
     data, mimetype = lst
     return Response(data, content_type=mimetype)
+
+@app.route("/favicon.ico")
+def favicon():
+    return redirect("/static/favicon.ico", 301)
